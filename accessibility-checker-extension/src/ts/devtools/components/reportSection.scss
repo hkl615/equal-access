@@ -29,7 +29,19 @@
             cursor: pointer;
         }
     }
-
+    .totalCountDisable {
+        @include type-style("label-02");
+        margin-top: 10px;
+        pointer-events: none;
+        color: $text-disabled;
+        text-align: right;
+    }
+    .totalCountEnable {
+        @include type-style("label-02");
+        margin-top: 10px;
+        pointer-events: auto;
+        text-align: right;
+    }
     .visHeading {
         @include type-style("heading-compact-01");
         button {
