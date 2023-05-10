@@ -33,7 +33,7 @@ describe('Altoro Mutual', () => {
     });
 
     it ('should be accessible', async() => {
-        await expect(page).toBeAccessible("ALTORO_HOME");
+        await expect(page).toBeAccessible();
     })
 
     describe('"Personal" page', () => {
@@ -42,7 +42,7 @@ describe('Altoro Mutual', () => {
         });
         
         it ('should be accessible', async() => {
-            await expect(page).toBeAccessible("ALTORO_PERSONAL");
+            await expect(page).toBeAccessible();
         })
     });
 
@@ -52,7 +52,7 @@ describe('Altoro Mutual', () => {
     //     });
         
     //     it ('should be accessible', async() => {
-    //         await expect(page).toBeAccessible("ALTORO_SMALLBUSINESS");
+    //         await expect(page).toBeAccessible();
     //     })
     // });
 });
