@@ -212,14 +212,16 @@ function drawDeleteKCM(tabbable:IReport, tabbableErrors:IReport, settings:ISetti
         
     });
 
-    // left mouse click listener for the circles and triangles
+    // left mouse click listener for the circles and errorCircles
     window.addEventListener('mousedown', function(event:any) {
+        console.log("mousedown EventListener");
         TabStopHighlight.handleTabHighlight(event,document,"click","",tabStopsErrors,regularTabstops);
     });
 
     // Tab key listener for main window
     window.addEventListener('keyup', function(event:any) {
         if ((event.target.shadowRoot instanceof ShadowRoot) === false) {
+            console.log("keyup EventListener");
             TabStopHighlight.handleTabHighlight(event, document, "main", "",tabStopsErrors,regularTabstops);
         }
     });

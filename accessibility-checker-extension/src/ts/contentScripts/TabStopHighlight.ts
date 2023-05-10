@@ -29,10 +29,16 @@ export default class TabStopHighlight {
     //       will be normal if not highlighting, bold if highlight
     public static async handleTabHighlight(event:any,doc:any,docType:string,iframeStr:string, tabStopsErrors: IReport, regularTabstops: IReport) { // doc type is main, iframe, shadowdom, click
         let elementXpath = "";
+        console.log("docType = ", docType);
         if (!event.shiftKey && event.key === "Tab") { // only catch Tab key
+            console.log("Got main doc element");
+            console.log("Caught TAB key");
             if (docType === "main") {
+                console.log("main doc docType = ", docType);
                 let element = doc.activeElement;  // get element just tabbed to which has focus
+                console.log("main doc element = ",element);
                 elementXpath = DomPathUtils.getDomPathForElement(element); // in main doc so just get xpath
+                console.log("main doc elementXpath = ", elementXpath);
             }
             
             // if we have iframe
@@ -54,6 +60,9 @@ export default class TabStopHighlight {
             if (circle?.classList.contains('error')) {
                 errorCircle = document.querySelector('circle[xpath="'+elementXpath+'"]');
             }
+
+            console.log("circle = ",circle);
+            console.log("errorCircle = ",errorCircle);
             
             let prevHighlightedElement;
 
@@ -77,18 +86,21 @@ export default class TabStopHighlight {
             }
             // Highlight circle
             if (circle && !circle.classList.contains('error')) {
+                console.log("Highlight circle", circle);
                 this.highlightCircle(circle,"circle");
             } else {
                 // console.log("No circle to highlight = ",circle);
             }
             if (errorCircle && errorCircle.classList.contains('error')) {
+                console.log("Highlight error circle", errorCircle);
                this.highlightCircle(errorCircle,"errorCircle");
             } else {
                 // console.log("No errorCircle to highlight = ",errorCircle);
             }
         } else if (event.shiftKey && event.key === "Tab") { // catch SHIFT TAB
             if (docType === "main") {
-                // console.log("Got main doc element");
+                console.log("Got main doc element");
+                console.log("Caught SHIFT TAB key");
                 let element = doc.activeElement;  // get element just tabbed to which has focus
                 elementXpath = DomPathUtils.getDomPathForElement(element); // in main doc so just get xpath
             }
