@@ -5,13 +5,15 @@
             "path": "accessibility-checker/boilerplates/jest"
         },
         {
-            "path": "accessibility-checker/boilerplates/jest-customRS"
-        },
-        {
             "path": "accessibility-checker/boilerplates/jest-puppeteer"
         },
         {
-            "path": "accessibility-checker/boilerplates/jest-selenium"
+            "path": "accessibility-checker/boilerplates/cucumber-puppeteer"
         }
-    ]
+    ],
+    "settings": {
+        "jest.disabledWorkspaceFolders": [
+            "cucumber-puppeteer"
+        ]
+    }
 }

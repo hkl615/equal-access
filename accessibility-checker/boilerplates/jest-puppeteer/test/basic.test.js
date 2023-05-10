@@ -4,7 +4,7 @@ const Puppeteer = require("puppeteer");
 let browser;
 beforeAll(async () => {
     try {
-        browser = await Puppeteer.launch({ headless: false});
+        browser = await Puppeteer.launch({ headless: true});
     } catch (e) {
         console.log(e);
     }

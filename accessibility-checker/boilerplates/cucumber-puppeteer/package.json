@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "test": "cucumber-js",
+    "test:cucumber:report": "cucumber-js -f json:results/cucumber_report.json; node generate;"
+  },
+  "devDependencies": {
+    "accessibility-checker": "*",
+    "chai": "^4.2.0",
+    "chromedriver": "*",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.2.0",
+    "eslint": "^7.0.0",
+    "html-escape": "^2.0.0",
+    "line-reader": "^0.4.0",
+    "puppeteer": "^13.4.0"
+  },
+  "dependencies": {}
+}
