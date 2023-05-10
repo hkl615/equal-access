@@ -10,7 +10,7 @@
 const aChecker = require("accessibility-checker");
 
 async function toBeAccessible(node) {
-  let results = await aChecker.getCompliance(node, this.currentTestName.replace(/ /g, "_"));
+  let results = await aChecker.getCompliance(node, this.currentTestName.replace(/[ \\/]/g, "_"));
   if (aChecker.assertCompliance(results.report) === 0) {
     return {
       pass: true
