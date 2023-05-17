@@ -1,8 +1,8 @@
 'use strict';
 
-const puppeteer = require('puppeteer');
-const { getTestcases, getResult } = require("./act");
-const fs = require("fs");
+import * as puppeteer from "puppeteer";
+import { getTestcases, getResult } from "./act.js";
+import * as fs from "fs";
 (async () => {
     // Fetch the testcases from ACT
     let ruleTestInfo = await getTestcases();
@@ -12,7 +12,7 @@ const fs = require("fs");
     }
     
     // Setup the Puppeteer test environment
-    let browser = await puppeteer.launch({ headless: true, ignoreHTTPSErrors: true });
+    let browser = await puppeteer.launch({ headless: 'new', ignoreHTTPSErrors: true });
     let pupPage = await browser.newPage();
     await pupPage.setRequestInterception(true);
     pupPage.on('request', request => {
