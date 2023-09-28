@@ -2382,9 +2382,9 @@ export class RPTUtil {
 
     /* Return the inner text of the given element */
     public static getInnerText(element) {
-        let retVal = element.innerText;
+        let retVal = element.innerText; //console.log("elem node=" + element.nodeName +", id=" + (element.getAttribute ? element.getAttribute("id") :"") + ", innerText=" + retVal);
         if (retVal === undefined || retVal.trim() === "")
-            retVal = element.textContent;
+            retVal = element.textContent; //console.log("elem node=" + element.nodeName +", id=" + (element.getAttribute ? element.getAttribute("id") :"") + ", textContent=" + retVal);
         return retVal;
     }
 
@@ -2468,7 +2468,7 @@ export class RPTUtil {
 
             // Loop over all the nodes until there are no more nodes or we have determine that there is content under
             // this parent element.
-            while (!hasContent && nw.nextNode() && nw.node != element) {
+            while (!hasContent && nw.nextNode() && nw.node != element) { 
                 // Get the next node
                 let node = nw.node;
 
@@ -2482,7 +2482,7 @@ export class RPTUtil {
                     node.nodeName.toLowerCase() === "svg"
                     && RPTUtil.svgHasName(node as any)
                 );
-
+                
                 // Now we check if this node is of type element, visible
                 if (!hasContent && node.nodeType === 1 && VisUtil.isNodeVisible(node)) {
                     // Check if the innerText of the element is empty or not
@@ -2511,7 +2511,8 @@ export class RPTUtil {
                 // text node.
                 if (node.nodeType === 3 && DOMWalker.parentElement(node) === element) {
                     // Check if the innerText of the element is empty or not
-                    hasContent = !RPTUtil.isInnerTextEmpty(node);
+                    hasContent = !RPTUtil.isInnerTextEmpty(node); //console.log("parent="+node.parentElement.nodeName + ", node value=" + node.nodeValue +", inner text=" +node.parentElement.innerText +", text content=" +node.parentElement.textContent);
+                    //if (!hasContent) hasContent = node.parentElement && (node.parentElement.textContent || "").trim().length > 0;
                 }
             }
         }

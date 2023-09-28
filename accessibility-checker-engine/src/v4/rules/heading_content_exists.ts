@@ -45,7 +45,7 @@ export let heading_content_exists: Rule = {
     }],
     act: [],
     run: (context: RuleContext, options?: {}, contextHierarchies?: RuleContextHierarchy): RuleResult | RuleResult[] => {
-        const ruleContext = context["dom"].node as Element;
+        const ruleContext = context["dom"].node as Element; 
         let passed = RPTUtil.hasInnerContentHidden(ruleContext);
         if (!passed) {
             return RuleFail("Fail_1");
